@@ -1,0 +1,19 @@
+
+
+.nowTemp {
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+/* LISTGROUP в правой колонке — убираем разделители */
+.listGroup .list-group-item + .list-group-item {
+  border-top: 1px solid rgba(#64748b, 0.3);
+}
+
+
+.hourList {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(70px, 1fr); // каждая колонка не уже 70 px, но растягивается
+  gap: 1rem;
+}

@@ -1,0 +1,18 @@
+.input {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--bg-card);
+
+  &::placeholder {
+    color: rgb(2555 2555 255 / 60%);
+  }
+
+  &:focus {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    box-shadow: none;
+  }
+}
+

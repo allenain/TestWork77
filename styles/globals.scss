@@ -1,0 +1,45 @@
+@import "bootstrap/scss/bootstrap";
+
+:root {
+  --bg-page: #1e1f2f;
+  --bg-card: #2b2d42;
+  --text-main: #fff;
+  --text-dark: #000;
+  --blue: #0d6efd;
+  --temp-min-bg: #ccf6dc;
+  --temp-min-border: #a0e3b0;
+  --temp-max-bg: #fff8c6;
+  --temp-max-border: #f2e396;
+  --card-shadow: 0 4px 20px rgb(0 0 0 / 30%);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+}
+
+
+.cardDark {
+  background: var(--bg-card);
+  box-shadow: var(--card-shadow);
+  border: 0;
+  border-radius: 1rem;
+  color: #fff;
+}
+
+
+.pageBg {
+  padding: 2rem 1rem;
+  color: var(--text-main);
+}
+
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
