@@ -131,7 +131,7 @@ const Forecast = () => {
                   Прогноз на неделю
                 </Card.Title>
 
-                <ListGroup variant="flush" className={styles.listGroup}>
+                <ListGroup variant="flush">
                   {daily.map((p) => {
                     const key = p.dt_txt.slice(0, 10);
                     const isActive = key === activeDate;
@@ -139,12 +139,12 @@ const Forecast = () => {
                       <ListGroup.Item
                         key={p.dt}
                         onClick={() => setActiveDate(key)}
-                        className={`d-flex align-items-center justify-content-between bg-transparent px-0 py-3 border-0 text-white ${
-                          isActive ? styles.activeDay : ""
+                        className={`d-flex align-items-center justify-content-between rounded px-2 py-3 border-0 text-white ${
+                          isActive ? styles.activeDay : styles.defaultDay
                         }`}
                         style={{ cursor: "pointer" }}
                       >
-                        <span className="w-25 text-capitalize">
+                        <span className="w-20 text-capitalize">
                           {new Date(p.dt * 1000).toLocaleDateString("ru-RU", {
                             weekday: "short",
                           })}
@@ -156,7 +156,7 @@ const Forecast = () => {
                           alt={p.weather[0].description}
                         />
 
-                        <span className="flex-grow-1 text-center text-secondary">
+                        <span className="flex-grow-1 text-center">
                           {p.weather[0].main}
                         </span>
 
