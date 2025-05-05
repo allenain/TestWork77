@@ -18,14 +18,17 @@ const MainPage = () => {
   const [error, setError] = useState<string>("");
 
   const fetchWeather = async () => {
-    if (!city.trim()) return;
+    const cleanedCity = city.trim().replace(/\s{2,}/g, " ");
+    if (!cleanedCity) return;
+
     setLoading(true);
     setError("");
     setWeather(null);
+
     try {
       const { data } = await axios.get(WEATHER_API, {
         params: {
-          q: city,
+          q: cleanedCity,
           appid: API_KEY,
           units: "metric",
           lang: "ru",
@@ -33,11 +36,25 @@ const MainPage = () => {
       });
       setWeather(data);
     } catch {
-      setError("Город не найден");
+      try {
+        const dashedCity = cleanedCity.replace(/\s+/g, "-");
+        const { data } = await axios.get(WEATHER_API, {
+          params: {
+            q: dashedCity,
+            appid: API_KEY,
+            units: "metric",
+            lang: "ru",
+          },
+        });
+        setWeather(data);
+      } catch {
+        setError("Город не найден");
+      }
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
       <Container fluid className="pageBg">
